@@ -34,8 +34,6 @@ while (opt != -1)
 		printf("-d: customizes the backup location\n");
 		printf("-m: disables meta-data duplication\n");
 		printf("-t: appends the duplication time to the file name\n");
-
-
 	}
 	
 	if (opt_d == true)

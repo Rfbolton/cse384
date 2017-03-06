@@ -29,6 +29,12 @@ while (opt != -1)
 	if (opt_h == true)
 	{
 		// prints helpful information when h arg is provided
+		printf("HELP INFORMATION\n");
+		printf("\n");
+		printf("-d: customizes the backup location\n");
+		printf("-m: disables meta-data duplication\n");
+		printf("-t: appends the duplication time to the file name\n");
+
 
 	}
 	

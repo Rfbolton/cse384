@@ -1,8 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdbool.h>
+#include <sys/inotify.h>
 
 int main(int argc, char* argv[]){
+
+bool opt_h = false, opt_d = false, opt_m = false; opt_t = false;
+int opt = getopt(argc, argv, "hdmt");
 
 	if(argc == 1){
 

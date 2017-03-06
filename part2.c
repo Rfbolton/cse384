@@ -6,7 +6,7 @@
 
 int main(int argc, char* argv[]){
 
-bool opt_h = false, opt_d = false, opt_m = false; opt_t = false;
+bool opt_h = false, opt_d = false, opt_m = false, opt_t = false;
 int opt = getopt(argc, argv, "hdmt");
 
 	if(argc == 1){

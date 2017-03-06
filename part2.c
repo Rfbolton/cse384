@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <sys/inotify.h>
+#include <errno.h>
 
 int main(int argc, char* argv[]){
 
@@ -38,7 +39,7 @@ while (opt != -1)
 	if (opt_h == true)
 	{
 		// prints helpful information when h arg is provided
-		printf("HELP INFORMATION\n");
+		printf("Help Information:\n");
 		printf("\n");
 		printf("-d: customizes the backup location\n");
 		printf("-m: disables meta-data duplication\n");
@@ -64,9 +65,8 @@ while (opt != -1)
 	}
 
 
-
-
-
+fprintf(stderr,"%s\n",strerror(errno));
+//prints error information
 
 	return EXIT_SUCCESS;
 }

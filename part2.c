@@ -6,7 +6,7 @@
 #include <errno.h>
 
 int main(int argc, char* argv[]){
-
+char filename[100];
 bool opt_h = false, opt_d = false, opt_m = false, opt_t = false;
 int opt = getopt(argc, argv, "hdmt");
 
@@ -64,6 +64,8 @@ while (opt != -1)
 
 	}
 
+printf("Enter the name of the file: ");
+scanf("%s",filename);
 
 fprintf(stderr,"%s\n",strerror(errno));
 //prints error information

@@ -4,6 +4,10 @@
 
 int main(int argc, char* argv[]){
 
+	if(argc == 1){
+
+		system("ps aux");
+	}
 
 while (opt != -1)
 	{

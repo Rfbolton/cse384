@@ -26,6 +26,30 @@ while (opt != -1)
 	}
 
 
+	if (opt_h == true)
+	{
+		// prints helpful information when h arg is provided
+
+	}
+	
+	if (opt_d == true)
+	{
+		// customizes the backup location
+
+	}
+
+	if (opt_m == true)
+	{
+		// disables meta-data duplication
+
+	}
+
+	if (opt_t == true)
+	{
+		// appends the duplication time to the file name
+
+	}
+
 
 
 

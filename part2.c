@@ -68,5 +68,5 @@ while (opt != -1)
 
 
 
-	return EXIT_SUCESS;
+	return EXIT_SUCCESS;
 }

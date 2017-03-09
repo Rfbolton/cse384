@@ -4,13 +4,19 @@
 #include <stdbool.h>
 #include <sys/inotify.h>
 #include <errno.h>
+#include <time.h>
 
 
 int main(int argc, char* argv[]){
 int fd = inotify_init();
+char filename[100];
 
-
-bool opt_h = false, opt_d = false, opt_m = false, opt_t = false;
+bool opt_h = false;
+bool opt_d = false;
+bool opt_m = false; 
+bool opt_t = false;
+char* arg_d = NULL;
+bool backup_modified = false;
 
 int opt = getopt(argc, argv, "hdmt");
 
@@ -53,8 +59,10 @@ while (opt != -1)
 	if (opt_d == true)
 	{
 		// customizes the backup location
-
-	}
+		if (arg_d = NULL)
+		{
+			printf("No path used for option -d.\n");
+		}
 
 	if (opt_m == true)
 	{
@@ -65,9 +73,16 @@ while (opt != -1)
 	if (opt_t == true)
 	{
 		// appends the duplication time to the file name
+		char buffer[100];
+		time_t time;
+		struct tm *timedata;
+		timedata = localtime(&time);
 
 	}
 
+
+printf("Enter the name of the file: ");
+scanf("%s",filename);
 
 
 

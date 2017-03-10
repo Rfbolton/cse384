@@ -8,7 +8,7 @@
 
 int main(int argc, char* argv[]){
 int fd = inotify_init();
-char filename[100];
+
 
 bool opt_h = false, opt_d = false, opt_m = false, opt_t = false;
 
@@ -68,11 +68,8 @@ while (opt != -1)
 
 	}
 
-printf("Enter the name of the file: ");
-scanf("%s",filename);
 
-fprintf(stderr,"%s\n",strerror(errno));
-//prints error information
+
 
 	return EXIT_SUCCESS;
 }

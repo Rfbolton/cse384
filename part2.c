@@ -9,6 +9,8 @@
 
 int main(int argc, char* argv[]){
 int fd = inotify_init();
+int fd_in,fd_out; //input/output file descriptors
+char buffer[100]; //character buffer
 char filename[100];
 
 int fd = inotify_init();

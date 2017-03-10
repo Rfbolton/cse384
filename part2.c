@@ -88,6 +88,14 @@ printf("Enter the name of the file: ");
 scanf("%s",filename);
 
 
+fd_input = open(filename, O_RDONLY)
+
+if (fd_input == -1){
+	perror( "open" );
+	return;
+}
+
+
 }
 	return EXIT_SUCCESS;
 }

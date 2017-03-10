@@ -7,14 +7,15 @@
 
 int main(int argc, char* argv[]){
 int fd = inotify_init();
-char filename[100];
+
 
 bool opt_h = false, opt_d = false, opt_m = false, opt_t = false;
+
 int opt = getopt(argc, argv, "hdmt");
 
-	if(argc == 1){
-		
-		system("ps aux");
+	if( argc < 2){
+		printf("usage: %s ",argv[0]);
+		return EXIT_SUCCESS;
 	}
 
 while (opt != -1)

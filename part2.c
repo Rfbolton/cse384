@@ -12,11 +12,9 @@ int fd = inotify_init();
 int fd_in,fd_out; //input/output file descriptors
 char buffer[100]; //character buffer
 char filename[100];
-
-int fd = inotify_init();
 int wd = inotify_add_watch(fd, "/etc/passwd", IN_MODIFY | IN_DELETE );
 
-bool opt_h = false:
+bool opt_h = false;
 bool opt_d = false;
 bool opt_m = false; 
 bool opt_t = false;
@@ -52,7 +50,7 @@ while (opt != -1)
 
 
 	if (opt_h == true)
-	{r
+	{
 		// prints helpful information when h arg is provided
 		printf("Help Information:\n");
 		printf("\n");
@@ -90,6 +88,6 @@ printf("Enter the name of the file: ");
 scanf("%s",filename);
 
 
-
+}
 	return EXIT_SUCCESS;
 }

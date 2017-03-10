@@ -5,12 +5,14 @@
 #include <sys/inotify.h>
 #include <errno.h>
 #include <time.h>
+#define SIZE 100
 
 
 int main(int argc, char* argv[]){
 int fd = inotify_init();
 int fd_in,fd_out; //input/output file descriptors
-char buffer[100]; //character buffer
+ssize_t in_ret,out_ret; //bytes returned by read/write
+char buffer[SIZE]; //character buffer
 char filename[100];
 int wd = inotify_add_watch(fd, "/etc/passwd", IN_MODIFY | IN_DELETE );
 
@@ -93,6 +95,16 @@ fd_input = open(filename, O_RDONLY)
 if (fd_input == -1){
 	perror( "open" );
 	return;
+}
+
+while((in_ret = read (fd_input, &buffer, SIZE )) > 0) {
+	out_ret = write(fd_out, &buffer, (ssize_t) in_ret);
+	if(out_ret != in_ret){
+		perror("write");
+		return
+	}
+
+
 }
 
 

@@ -5,9 +5,10 @@
 #include <sys/inotify.h>
 #include <errno.h>
 
+
 int main(int argc, char* argv[]){
 int fd = inotify_init();
-
+char filename[100];
 
 bool opt_h = false, opt_d = false, opt_m = false, opt_t = false;
 

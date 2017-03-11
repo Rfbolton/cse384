@@ -14,6 +14,7 @@ int fd_in,fd_out; //input/output file descriptors
 ssize_t in_ret,out_ret; //bytes returned by read/write
 char buffer[SIZE]; //character buffer
 int wd = inotify_add_watch(fd, "/etc/passwd", IN_MODIFY | IN_DELETE );
+char* filename = argv[1];
 
 bool opt_h = false;
 bool opt_d = false;
@@ -84,7 +85,7 @@ while (opt != -1)
 
 	}
 
-fd_input = open(argv[1], O_RDONLY)
+fd_input = open(argv[1], O_RDONLY | O_CREAT | O_TRUNC );
 
 if (fd_input == -1){
 	perror( "open" );
@@ -100,7 +101,7 @@ while((in_ret = read (fd_input, &buffer, SIZE )) > 0) {
 
 
 close (fd_input);
-close (fd_input);
+close (fd_output);
 
 }
 	return EXIT_SUCCESS;

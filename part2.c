@@ -13,7 +13,6 @@ int fd = inotify_init();
 int fd_in,fd_out; //input/output file descriptors
 ssize_t in_ret,out_ret; //bytes returned by read/write
 char buffer[SIZE]; //character buffer
-char filename[100];
 int wd = inotify_add_watch(fd, "/etc/passwd", IN_MODIFY | IN_DELETE );
 
 bool opt_h = false;
@@ -85,12 +84,7 @@ while (opt != -1)
 
 	}
 
-
-printf("Enter the name of the file: ");
-scanf("%s",filename);
-
-
-fd_input = open(filename, O_RDONLY)
+fd_input = open(argv[1], O_RDONLY)
 
 if (fd_input == -1){
 	perror( "open" );
@@ -105,8 +99,8 @@ while((in_ret = read (fd_input, &buffer, SIZE )) > 0) {
 	}
 
 
-}
-
+close (fd_input);
+close (fd_input);
 
 }
 	return EXIT_SUCCESS;

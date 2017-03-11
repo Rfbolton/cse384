@@ -10,7 +10,7 @@
 
 int main(int argc, char* argv[]){
 int fd = inotify_init();
-int fd_in,fd_out; //input/output file descriptors
+int fd_in,fd_out, fd_new; //input/output file descriptors
 ssize_t in_ret,out_ret; //bytes returned by read/write
 char buffer[SIZE]; //character buffer
 int wd = inotify_add_watch(fd, "/etc/passwd", IN_MODIFY | IN_DELETE );
@@ -99,9 +99,13 @@ while((in_ret = read (fd_input, &buffer, SIZE )) > 0) {
 		return
 	}
 
+fd_new = open(fd_out, O_CREAT);
 
 close (fd_input);
 close (fd_output);
+close(fd_new);
+
+
 
 }
 	return EXIT_SUCCESS;

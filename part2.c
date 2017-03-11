@@ -78,11 +78,27 @@ while (opt != -1)
 	if (opt_t == true)
 	{
 		// appends the duplication time to the file name
+		
 		char buffer[100];
+		char* get_timestring() {
+
 		time_t time;
 		struct tm *timedata;
 		timedata = localtime(&time);
+	}
 
+	char* timestring = get_timestring();
+
+
+     int fd = open(argv[1], O_WRONLY | O_CREAT | O_APPEND);
+
+     size_t len = strlen (timestring);
+
+       write (fd, timestring, len); 
+
+       close(fd);
+
+       return;
 	}
 
 fd_input = open(argv[1], O_RDONLY | O_CREAT | O_TRUNC );
@@ -96,7 +112,7 @@ while((in_ret = read (fd_input, &buffer, SIZE )) > 0) {
 	out_ret = write(fd_out, &buffer, (ssize_t) in_ret);
 	if(out_ret != in_ret){
 		perror("write");
-		return
+		return;
 	}
 
 

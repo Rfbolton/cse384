@@ -1,8 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 #include <stdbool.h>
 #include <sys/inotify.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <errno.h>
 #include <time.h>
 #define SIZE 100
@@ -98,27 +101,27 @@ while (opt != -1)
 
        close(fd);
 
-       return;
+       return EXIT_SUCCESS;
 	}
 
-fd_input = open(argv[1], O_RDONLY | O_CREAT | O_TRUNC );
+fd_in = open(argv[1], O_RDONLY | O_CREAT | O_TRUNC);
 
-if (fd_input == -1){
+if (fd_in == -1){
 	perror( "open" );
-	return;
+	return EXIT_SUCCESS;
 }
 
-while((in_ret = read (fd_input, &buffer, SIZE )) > 0) {
+while((in_ret = read (fd_in, &buffer, SIZE )) > 0) {
 	out_ret = write(fd_out, &buffer, (ssize_t) in_ret);
 	if(out_ret != in_ret){
 		perror("write");
-		return;
+		return EXIT_SUCCESS;
 	}
 
 fd_new = open(fd_out, O_CREAT);
 
-close (fd_input);
-close (fd_output);
+close (fd_in);
+close (fd_out);
 close(fd_new);
 
 
